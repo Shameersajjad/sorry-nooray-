@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorry Noor 🥺</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  overflow: hidden;
+  color: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4e50;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+.emoji {
+  font-size: 60px;
+  margin: 20px;
+}
+
+.floating {
+  position: absolute;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+
+/* smooth fade */
+.fadeIn {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <h1 id="title">Noor... ek baat kahun? 🥺</h1>
+
+  <div id="step1" class="fadeIn">
+    <button onclick="nextStep()">Sun lo na...</button>
+  </div>
+
+  <div id="step2" class="hidden fadeIn">
+    <p>
+      Thoda late ho gaya tha... 😔<br>
+      but sach me intention wrong nahi tha
+    </p>
+    <button onclick="nextStep2()">Ab kya karun?</button>
+  </div>
+
+  <div id="step3" class="hidden fadeIn">
+    <p>Chalo apko manaata hoon 😌</p>
+    <button onclick="showChocolate()">🍫 Chocolate</button>
+    <button onclick="showTeddy()">🧸 Teddy</button>
+    <button onclick="showIceCream()">🍦 Ice Cream</button>
+  </div>
+
+  <div id="gift" class="hidden fadeIn">
+    <div class="emoji" id="emoji"></div>
+    <p id="giftText"></p>
+    <button onclick="finalStep()">Ab maan jao na 😭</button>
+  </div>
+
+  <div id="final" class="hidden fadeIn">
+    <h2>Sorry Nooray 🥺</h2>
+    <p>
+      Mujhse galti ho gayi... 😔<br><br>
+      late hona meri mistake thi, lekin mana jan bojh kar aisa nai kia mara bacha <br><br>
+      Tum naraz ho to bura lagta hai...<br>
+      bas itna kehna tha sorry Noor 🥺<br><br>
+      daikhain itna pyar sa mang raha mafi da dain na 
+      or han manaa call nai kati thi muja laga ap bol 
+      hi nai raha kuch ap to acha ho na ma ganda bacha hoon 
+      chalin ab chor dain or 13 april 3:45 par jab mara sa chat la li thi 
+      us tarah ki smile kardain ma apna beta sa bht zada karta i know wo beech wala
+      word ban hoa ha end sirf is par karta hain
+      Bus ek maafi hamari toba jo ham kabhi satain apko
+      lo ab hath jora kan pakra ab kaisa manain apko  
+    </p>
+  </div>
+
+</div>
+
+<script>
+
+function nextStep() {
+  document.getElementById("step1").classList.add("hidden");
+  document.getElementById("step2").classList.remove("hidden");
+}
+
+function nextStep2() {
+  document.getElementById("step2").classList.add("hidden");
+  document.getElementById("step3").classList.remove("hidden");
+}
+
+function showChocolate() {
+  showGift("🍫", "Tumhari favourite chocolates 😌\nBueno + KitKat ready hain!");
+}
+
+function showTeddy() {
+  showGift("🧸", "Yeh teddy specially Noor ke liye 🥺");
+}
+
+function showIceCream() {
+  showGift("🍦", "Baskin Robbins wali ice cream treat pending hai 😋");
+}
+
+function showGift(emoji, text) {
+  document.getElementById("step3").classList.add("hidden");
+  document.getElementById("gift").classList.remove("hidden");
+  document.getElementById("emoji").innerText = emoji;
+  document.getElementById("giftText").innerText = text;
+}
+
+function finalStep() {
+  document.getElementById("gift").classList.add("hidden");
+  document.getElementById("final").classList.remove("hidden");
+}
+
+/* floating hearts */
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.className = "floating";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 15 + 15) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}, 400);
+
+</script>
+
+</body>
+</html>
